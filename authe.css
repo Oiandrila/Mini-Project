@@ -15,19 +15,25 @@ body {
 
 .container {
     width: 500px;
-    height: 1000px;
+    height: 700px; /* Ensures the box grows if needed */
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* text-align: center; */
 }
 
-h1 {
+/* h1 {
     margin-bottom: 15px;
-    margin-top: 20px;
+    
     font-size: 24px;
     text-align: center;
+    
+    } */
+    h1 {
+        margin: 20px 0;
+        margin-top: 20px;
+        font-size: 24px;
+        text-align: center;
     }
 
 input {
@@ -74,9 +80,9 @@ a:hover {
     margin-top: 5%;
 }
 .image_under_signup {
-    width: 100%;
-    height: auto;
-    margin-left: 0.5vh;
+    width: 300px;
+    height: 200px;
+    margin-left: 7.6vh;
     margin-bottom: 15px;
 }
 .enter_field{
