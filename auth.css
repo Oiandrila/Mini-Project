@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    width: 500px;
+    width: 400px;
     height: 700px;
     background: white;
     padding: 20px;
@@ -75,6 +75,7 @@ a:hover {
 }
 .image_under_signin{
     height: 300px;
+    margin-left: 17px;
 }
 .enter_field{
     font-weight: bolder;
