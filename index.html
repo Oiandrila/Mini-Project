@@ -30,11 +30,19 @@
         <button onclick=comingsoon()>Get Started</button>
         <!-- Right-aligned Buttons -->
     <div class="right-buttons">
-        <button class="upload-button">Upload CV</button>
+        <label for="pdfInput" class="upload-buttonlabel">Upload CV</label>       
+        <!-- <button class="upload-button">-->
+            <input type="file" id="pdfInput" class="input-class" accept="application/pdf" onchange="previewPDF()">
+        <!-- </button>  -->
         <button class="generate-button">Generate Q</button>
+        <button clss="clear-PDF" onclick="clearPDF()">Clear PDF</button>
     </div>
-    </main>
     
+    </main>
+    <!-- Pdf file section -->
+    <div id="pdfViewer">
+        <iframe id="pdfFrame" class="pdf-show" frameBorder="0" width="700" height="400"></iframe>
+    </div>
     <!-- Footer Section -->
     <footer class="footer">
         <p>&copy; 2025 AI CV Generator. All rights reserved.</p>
@@ -44,5 +52,55 @@
 function comingsoon() {
     alert("Feature is coming soon.");
   }
+//   function previewPDF() {
+//             const fileInput = document.getElementById('pdfInput');
+//             const file = fileInput.files[0];
+//             const pdfFrame = document.getElementById('pdfFrame');
+//             const pdfViewer = document.getElementById('pdfViewer');
+
+//             if (file) {
+//                 if (file.type !== "application/pdf") {
+//                     alert("Only PDF files are allowed!");
+//                     fileInput.value = "";
+//                     return;
+//                 }
+
+//                 const fileURL = URL.createObjectURL(file);
+//                 pdfFrame.src = fileURL;
+//                 pdfViewer.style.display = "block";
+//             }
+//         }
+
+//         function clearPDF() {
+//             document.getElementById('pdfInput').value = "";
+//             document.getElementById('pdfViewer').style.display = "none";
+//             document.getElementById('pdfFrame').src = "";
+//         }
+function previewPDF() {
+    const fileInput = document.getElementById('pdfInput');
+    const file = fileInput.files[0];
+    const pdfFrame = document.getElementById('pdfFrame');
+    const pdfViewer = document.getElementById('pdfViewer');
+
+    if (file) {
+        if (file.type !== "application/pdf") {
+            alert("Only PDF files are allowed!");
+            fileInput.value = "";
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            pdfFrame.src = event.target.result; // Load PDF using Base64 Data URL
+            pdfViewer.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+    }
+}
+function clearPDF() {
+            document.getElementById('pdfInput').value = "";
+            document.getElementById('pdfViewer').style.display = "none";
+            document.getElementById('pdfFrame').src = "";
+        }
 </script>
 </html>
