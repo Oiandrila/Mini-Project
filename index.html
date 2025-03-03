@@ -6,9 +6,7 @@
     <title>AI CV to Q Generator</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back" />
-    
-    
-</head>
+ </head>
 <body>
     <!-- Header Section -->
     <header class="header">
@@ -34,15 +32,31 @@
         <!-- <button class="upload-button">-->
             <input type="file" id="pdfInput" class="input-class" accept="application/pdf" onchange="previewPDF()">
         <!-- </button>  -->
-        <button class="generate-button">Generate Q</button>
+        <button onclick="toggleContainer()" class="generate-button">Generate Q</button>
         <button clss="clear-PDF" onclick="clearPDF()">Clear PDF</button>
     </div>
     
-    </main>
     <!-- Pdf file section -->
-    <div id="pdfViewer">
+    <div class="pdfcontainer">
+        <div id="pdfViewer">
         <iframe id="pdfFrame" class="pdf-show" frameBorder="0" width="700" height="400"></iframe>
+        </div>
+        <!-- to be added -->
+        <div class="ghidden" id="Generatecontainer">
+            <!-- <div class="container-test"></div>     -->
+            <h2>Check your Information and Start your test.</h2>
+            <h3 class="info">Name : </h3>
+            <h3 class="info">Email : </h3>
+            <h3 class="info">CGPA : </h3>
+            <h3 class="info">Expertise Field : </h3>
+            <h3 class="info">Educational Qualification : </h3>
+            <h3 class="info">Experience(If any) : </h3>
+                        <p>Your examination contains 30 marks, Test time : 30mint, other informations will be here.</p>
+                        <button onclick=comingsoon()>Start Test</button>
+        </div>
+        <!-- to be added -->
     </div>
+</main>
     <!-- Footer Section -->
     <footer class="footer">
         <p>&copy; 2025 AI CV Generator. All rights reserved.</p>
@@ -52,30 +66,6 @@
 function comingsoon() {
     alert("Feature is coming soon.");
   }
-//   function previewPDF() {
-//             const fileInput = document.getElementById('pdfInput');
-//             const file = fileInput.files[0];
-//             const pdfFrame = document.getElementById('pdfFrame');
-//             const pdfViewer = document.getElementById('pdfViewer');
-
-//             if (file) {
-//                 if (file.type !== "application/pdf") {
-//                     alert("Only PDF files are allowed!");
-//                     fileInput.value = "";
-//                     return;
-//                 }
-
-//                 const fileURL = URL.createObjectURL(file);
-//                 pdfFrame.src = fileURL;
-//                 pdfViewer.style.display = "block";
-//             }
-//         }
-
-//         function clearPDF() {
-//             document.getElementById('pdfInput').value = "";
-//             document.getElementById('pdfViewer').style.display = "none";
-//             document.getElementById('pdfFrame').src = "";
-//         }
 function previewPDF() {
     const fileInput = document.getElementById('pdfInput');
     const file = fileInput.files[0];
@@ -101,6 +91,22 @@ function clearPDF() {
             document.getElementById('pdfInput').value = "";
             document.getElementById('pdfViewer').style.display = "none";
             document.getElementById('pdfFrame').src = "";
+            document.getElementById("pdfFrame").style.display = "none";
+            document.getElementById("Generatecontainer").style.display = "none";
         }
+
+function toggleContainer() {
+
+var container = document.getElementById("Generatecontainer");
+if (container.style.display === "none") {
+    document.getElementById("pdfFrame").style.display = "none";
+    document.getElementById("pdfFrame").style.alignItems = "center";
+    container.style.display = "block";
+         
+    } else {
+    container.style.display = "none";
+}
+}
+
 </script>
 </html>
