@@ -12,7 +12,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 # Gemini API Key (Replace with your actual API key)
-API_KEY = "AIzaSyCjs8__LTfY_RE9ZHk9XR9s1cdsxkLKzwU"
+API_KEY = "************************************"
 genai.configure(api_key=API_KEY)
 
 #models = genai.list_models()
