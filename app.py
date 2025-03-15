@@ -4,7 +4,23 @@ import fitz  # PyMuPDF for PDFs
 import docx
 from flask import Flask, request, render_template, jsonify
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/Signin')
+def signin():
+    return render_template('Signin.html')
+
+@app.route('/Signup')
+def signup():
+    return render_template('Signup.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 # Ensure upload folder exists
 UPLOAD_FOLDER = "uploads"
