@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI CV to Q Generator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #2c3e50;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideDown 1s ease-in-out;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav ul li {
+            margin: 0 15px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .main-content h1 {
+            font-size: 32px;
+            color: #2c3e50;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 400px;
+            width: 90%;
+            justify-content: center;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-box:hover {
+            transform: scale(1.05);
+        }
+
+        .material-symbols-outlined {
+            font-size: 45px;
+            color: #f39c12;
+        }
+
+        .mail-button {
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        .mail-button:hover {
+            background-color: #e67e22;
+            transform: scale(1.1);
+        }
+
+        .no_href_decoration {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                padding-top: 10px;
+            }
+
+            .nav ul li {
+                margin: 10px 0;
+            }
+
+            .main-content {
+                padding: 30px 10px;
+            }
+
+            .contact-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+
+            .material-symbols-outlined {
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">AI CV to Q Generator</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Signin.html">Sign In</a></li>
+                <li><a href="Signup.html">Sign Up</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Section -->
+    <main class="main-content">
+        <h1>Contact Us</h1>
+        <p>We're here to help and answer any questions you might have. We look forward to hearing from you!</p>
+
+        <div class="contact-box">
+            <span class="material-symbols-outlined">mail</span>
+            <a href="mailto:oiandrila62948@gmail.com" class="mail-button">Mail Us!</a>
+        </div>
+    </main>
+
+    <!-- Footer Section 
+    <footer class="footer">
+        <p>&copy; 2025 AI CV Generator. All rights reserved.</p>
+    </footer>-->
+</body>
+</html>
