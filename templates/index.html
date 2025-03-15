@@ -34,7 +34,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            color: white;
+            color: black;
                     }
         .chat-box {
             border: 1px solid #ddd;
@@ -144,6 +144,9 @@
             <p>Processing your resume...</p>
         </div>
 
+        <div id="timer" style="display: none;">Time Left: 10:00</div>
+
+
         <div class="chat-box mt-3" id="chatBox"></div>
 
         <div class="input-group mt-3">
@@ -156,7 +159,9 @@
         let questions = [];
         let currentQuestionIndex = 0;
         let answers = [];
-        
+        let totalTime = 2 * 60; // 10 minutes in seconds
+        let timerInterval;
+
 
         // Detect tab switch
         let isTabSwitchDetectionActive = false; // Flag to enable/disable detection
@@ -174,6 +179,7 @@ document.addEventListener("visibilitychange", function () {
 });
 let backspaceCount = 0;
 let isTrackingBackspace = false;
+
 
 // Start tracking when "Upload" is clicked
 function startTrackingBackspace() {
@@ -245,7 +251,27 @@ document.addEventListener("keydown", function (event) {
             appendMessage("AI: Here are some interview questions based on your resume:", "bot");
             appendMessage("AI: Write 'Start' to start the examination.", "bot");
             askNextQuestion();
+            document.getElementById("timer").style.display = "block";
+            startTimer(); // Start timer
+
         }
+
+        function startTimer() {
+            let timerElement = document.getElementById("timer");
+            timerInterval = setInterval(function () {
+                let minutes = Math.floor(totalTime / 60);
+                let seconds = totalTime % 60;
+                timerElement.innerText = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+                if (totalTime <= 0) {
+                    clearInterval(timerInterval);
+                    alert("⏳ Time is up! Submitting your answers automatically.");
+                    submitAnswers();
+                }
+                totalTime--;
+            }, 1000);
+        }
+
 
         function askNextQuestion() {
             if (currentQuestionIndex < questions.length) {

@@ -28,7 +28,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 # Gemini API Key (Replace with your actual API key)
-API_KEY = "AIzaSyCezMY6lBzHvDj0cuuWIttUrELOr4yIbiY"
+API_KEY = "AIzaSyCSBVAsQvrnFzK0hRdF15RtgmeOzaY7WzU"
 genai.configure(api_key=API_KEY)
 
 # Function: Extract text from PDF
