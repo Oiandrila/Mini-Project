@@ -9,6 +9,7 @@
         body {
             /* background-color: #f8f9fa; */
             background-color: #007bff;
+            /* background-color: black; */
         }
         .header {
     position: fixed;
@@ -135,8 +136,8 @@
         <p class="text-muted text-center">Upload your resume to start the interview.</p>
 
         <div id="upload-section">
-            <input type="file" id="resumeFile" class="form-control">
-            <button class="btn btn-primary mt-2" onclick="uploadResume()">Upload</button>
+            <input type="file" id="resumeFile" class="form-control" accept="application/pdf">
+            <button class="btn btn-primary mt-2" onclick="uploadResume()">Generate Questions</button>
         </div>
 
         <div id="loading" class="text-center mt-3" style="display: none;">
