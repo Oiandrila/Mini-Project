@@ -122,6 +122,11 @@ body {
   }
   
     </style>
+    <script>
+        const homeUrl = "{{ url_for('home') }}";
+        const signInUrl = "{{ url_for('signin') }}";
+
+    </script>
 </head>
 <body>
     <div class="container">
@@ -149,5 +154,5 @@ body {
 <script src="{{ url_for('static', filename='auth.js') }}" type="module" defer></script>
 
 
-</script>
+
 </html>

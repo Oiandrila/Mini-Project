@@ -24,6 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+// const homeUrl = "{{ url_for('home') }}";
+// const signInUrl = "{{ url_for('signin') }}";
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
@@ -59,17 +62,20 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
-
+            
             // Store user data in Firestore
             await setDoc(doc(db, "users", user.uid), {
                 name: name,
                 email: email,
                 uid: user.uid,
+                
             });
 
             alert("You are Signed Up!");
             console.log("User registered:", user);
-            window.location.href = "/signup.html";
+            // window.location.href = "/signup.html";
+            // window.location.href = "{{ url_for('signin') }}";
+            window.location.href = signInUrl;
         } catch (error) {
             console.error("Error:", error.code, error.message);
             alert("Error: " + error.message);
@@ -86,21 +92,20 @@ document.addEventListener("DOMContentLoaded", function () {
     signInButton.addEventListener("click", async function (event) {
         event.preventDefault(); // Prevent page reload
 
-        const email = document.getElementById("semail").value;
-        const password = document.getElementById("spassword").value;
+        const semail = document.getElementById("semail").value;
+        const spassword = document.getElementById("spassword").value;
 
-        console.log("Signing in:", email);
+        console.log("Signing in:", semail);  // ✅ Fixed variable name
 
         try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const userCredential = await signInWithEmailAndPassword(auth, semail, spassword);
             const user = userCredential.user;
 
             alert("Sign-In Successful!");
             console.log("User signed in:", user);
 
-            // Redirect to dashboard or home page (change URL as needed)
-            window.location.href = "/signin.html"; 
-            
+            // Use the global variable homeUrl (passed from Flask)
+            window.location.href = homeUrl;
 
         } catch (error) {
             console.error("Error:", error.code, error.message);
