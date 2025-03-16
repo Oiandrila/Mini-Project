@@ -124,10 +124,10 @@ a:hover {
                 <img src="{{ url_for('static', filename='images/signin.jpg') }}" alt="Please Sign In" class="image_under_signin">
                 <div class="emailpassword">
                 <label class="enter_field">Enter your Email id</label><br>
-                <input type="email" placeholder="Email" required class="email_in">
+                <input type="email" id="semail" placeholder="Email" required class="email_in">
                 <label class="enter_field">Password</label><br>
-                <input type="password" placeholder="Password" required>
-                <button type="submit" class="Sign_In">Sign In</button>
+                <input type="password" id="spassword" placeholder="Password" required>
+                <button type="button" id="signIn" class="Sign_In">Sign In</button>
                 <p class="Dont_center">Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
                 <span onclick="history.go(-1)" class="material-symbols-outlined" >
                     arrow_back
@@ -138,7 +138,7 @@ a:hover {
         </div>
     </div>
 </body>
-<script href="auth.js">
+<script src="{{ url_for('static', filename='auth.js') }}" type="module" defer></script>
 
 </script>
 </html>
